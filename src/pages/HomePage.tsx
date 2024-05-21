@@ -8,18 +8,9 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   console.log(user);
   return (
-    <Layout>
       <div className="home-page">
-        <h1>Hi {user?.name?.givenName} !</h1>
-        <p>Discover the latest trends in fashion</p>
-        <button
-          className="home-profile"
-          onClick={() => navigate("../profile", { replace: false })}
-        >
-          Check out your profile
-        </button>
+        <div className='content'/>
       </div>
-    </Layout>
   );
 };
 

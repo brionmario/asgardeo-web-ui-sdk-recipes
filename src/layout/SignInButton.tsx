@@ -1,7 +1,8 @@
 import { ReactElement, useState } from "react";
 import "./sign-in-button.scss";
-import { SignIn } from "../../../../web-ui-sdks/packages/react/src";
+import { Hooks, SignIn, useOn } from "../../../../web-ui-sdks/packages/react/src";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 const SignInButton = (): ReactElement => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -13,6 +14,16 @@ const SignInButton = (): ReactElement => {
   const closeModal = (): void => {
     setModalVisible(false);
   };
+
+  const navigate = useNavigate();
+
+  useOn({
+    event: Hooks.SignIn,
+    callback: () => {
+      console.log('home')
+      navigate('./home')
+    }
+  })
 
   return (
     <div className="asgardeo">
@@ -27,6 +38,7 @@ const SignInButton = (): ReactElement => {
           </button>
           
           <SignIn showFooter={false} brandingProps={{
+            locale: 'fr-FR',
             preference: {
               text: {
                 'en-US': {
