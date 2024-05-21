@@ -1,5 +1,7 @@
 import { ReactElement, useState } from "react";
 import "./sign-in-button.scss";
+import { SignIn } from "../../../../web-ui-sdks/packages/react/src";
+import Footer from "./Footer";
 
 const SignInButton = (): ReactElement => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -24,6 +26,21 @@ const SignInButton = (): ReactElement => {
             X
           </button>
           
+          <SignIn showFooter={false} brandingProps={{
+            preference: {
+              text: {
+                'en-US': {
+                  common: {
+                    "multiple.options.prefix": "Continue with"
+                  },
+                  login: {
+                    "enter.your.password": "password"
+                  }
+                }
+              }
+            }
+          }}/>
+          <Footer />
         </div>
       )}
 
