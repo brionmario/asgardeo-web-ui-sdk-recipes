@@ -1,8 +1,12 @@
 import { ReactElement, useState } from "react";
 import "./sign-in-button.scss";
-import { Hooks, SignIn, useOn } from "../../../../web-ui-sdks/packages/react/src";
-import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
+import {
+  Hooks,
+  SignIn,
+  useOn,
+} from "../../../../web-ui-sdks/packages/react/src";
+import Footer from "./Footer";
 
 const SignInButton = (): ReactElement => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -20,10 +24,9 @@ const SignInButton = (): ReactElement => {
   useOn({
     event: Hooks.SignIn,
     callback: () => {
-      console.log('home')
-      navigate('./home')
-    }
-  })
+      navigate("./home");
+    },
+  });
 
   return (
     <div className="asgardeo">
@@ -36,22 +39,25 @@ const SignInButton = (): ReactElement => {
           <button className="close-button" onClick={closeModal}>
             X
           </button>
-          
-          <SignIn showFooter={false} brandingProps={{
-            locale: 'fr-FR',
-            preference: {
-              text: {
-                'en-US': {
-                  common: {
-                    "multiple.options.prefix": "Continue with"
+          <SignIn
+            showFooter={false}
+            brandingProps={{
+              locale: "fr-FR",
+              preference: {
+                text: {
+                  "en-US": {
+                    common: {
+                      "multiple.options.prefix": "Continue with",
+                    },
+                    login: {
+                      "enter.your.password": "Password",
+                    },
                   },
-                  login: {
-                    "enter.your.password": "password"
-                  }
-                }
-              }
-            }
-          }}/>
+                },
+              },
+            }}
+          />
+
           <Footer />
         </div>
       )}
