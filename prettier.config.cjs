@@ -16,22 +16,4 @@
  * under the License.
  */
 
-import {FC, ReactElement} from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
-import HomePage from '../pages/HomePage';
-import LandingPage from '../pages/LandingPage';
-import './router.scss';
-
-export type RouterProps = {};
-
-export const Router: FC<RouterProps> = (): ReactElement => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="/home" element={<HomePage />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
-);
+module.exports = require('@wso2/prettier-config');

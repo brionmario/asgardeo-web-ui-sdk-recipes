@@ -16,22 +16,15 @@
  * under the License.
  */
 
+import {useAuthentication} from '@asgardeo/react';
 import {FC, ReactElement} from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
-import HomePage from '../pages/HomePage';
-import LandingPage from '../pages/LandingPage';
-import './router.scss';
+import {Outlet, Navigate} from 'react-router-dom';
 
-export type RouterProps = {};
+export type ProtectedRouteProps = {};
 
-export const Router: FC<RouterProps> = (): ReactElement => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route element={<ProtectedRoute />}>
-        <Route path="/home" element={<HomePage />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
-);
+const ProtectedRoute: FC<ProtectedRouteProps> = (): ReactElement => {
+  const {isAuthenticated} = useAuthentication();
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+};
+
+export default ProtectedRoute;

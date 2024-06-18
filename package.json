@@ -1,8 +1,32 @@
 {
-  "name": "sample-test-sdk",
   "private": true,
-  "version": "0.0.0",
+  "name": "@asgardeo/web-ui-sdk-recipes-interest",
+  "version": "0.1.0",
   "type": "module",
+  "description": "Sample app showcasing the usage of the Asgardeo Web UI SDK in a Image Gallery application.",
+  "author": "WSO2",
+  "license": "Apache-2.0",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/asgardeo/web-ui-sdks/tree/main/recipes/interest#readme",
+  "bugs": {
+    "url": "https://github.com/asgardeo/web-ui-sdks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asgardeo/web-ui-sdks",
+    "directory": "recipes/interest"
+  },
+  "keywords": [
+    "asgardeo",
+    "web-sdks",
+    "api-based-auth",
+    "recipes",
+    "photo-gallery"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,6 +34,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@asgardeo/react": "^0.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
@@ -18,16 +43,18 @@
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "@wso2/eslint-plugin": "https://gitpkg.now.sh/brionmario/wso2-ui-configs/packages/eslint-plugin?fa0b844715320a3953d6d055997c0770f8695082",
+    "@wso2/prettier-config": "https://gitpkg.now.sh/brionmario/wso2-ui-configs/packages/prettier-config?fa0b844715320a3953d6d055997c0770f8695082",
     "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
+    "prettier": "^3.3.2",
     "sass": "^1.77.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-node-polyfills": "^0.21.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
